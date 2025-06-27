@@ -1,0 +1,22 @@
+bin# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.csproj.user
+
+# Build results
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+
+# Outros
+*.tmp
+*.bak
+*.swp
+*.DS_Store
