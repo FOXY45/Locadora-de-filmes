@@ -1,0 +1,15 @@
+# Força o uso de LF (line feed) como quebra de linha no repositório
+* text=auto eol=lf
+
+# Trate arquivos C# como texto (importante para diffs e merges)
+*.cs text diff=csharp
+
+# Trate arquivos XAML como texto
+*.xaml text
+
+# Ignore diferenças de capitalização em sistemas que diferenciam
+*.cs linguist-language=C#
+
+# Arquivos específicos do Visual Studio
+*.sln text
+*.csproj text

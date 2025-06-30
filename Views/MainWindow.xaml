@@ -1,0 +1,11 @@
+<!-- Views/MainWindow.xaml -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="LocadoraDeFilmes.Views.MainWindow"
+        Title="Locadora de Filmes" Width="800" Height="600">
+
+    <StackPanel Margin="10">
+        <TextBlock Text="Bem-vindo à Locadora de Filmes" FontSize="20" Margin="0 0 0 20"/>
+        <!-- Aqui poderão ser adicionados botões, listas, formulários, etc -->
+    </StackPanel>
+</Window>

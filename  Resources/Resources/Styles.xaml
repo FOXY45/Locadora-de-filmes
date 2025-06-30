@@ -1,0 +1,14 @@
+<!-- Resources/Styles.xaml -->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="CorPrimaria">#007ACC</Color>
+    <Color x:Key="CorSecundaria">#005A9E</Color>
+
+    <Style Selector="TextBlock.Titulo">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{DynamicResource CorPrimaria}"/>
+    </Style>
+
+</ResourceDictionary>
