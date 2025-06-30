@@ -32,7 +32,6 @@ LocadoraDeFilmes/
 ├── Resources/            # Estilos, imagens e arquivos estáticos (em branco)
 │
 ├── Program.cs            # Menu de texto atual com operações básicas de Filial
-├── LocadoraDbContext.cs  # Contexto do banco com os DbSets principais
 ├── CRA.csproj            # Arquivo de projeto (renomeado)
 ├── .gitignore
 ├── .gitattributes
