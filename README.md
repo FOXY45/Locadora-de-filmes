@@ -30,14 +30,9 @@ LocadoraDeFilmes/
 ├── ViewModels/ # [interface Avalonia] Lógica das Views (em branco, para expansão futura)
 ├── Resources/ # Estilos, imagens e arquivos estáticos (em branco)
 │
-<<<<<<< HEAD
 ├── Program.cs # Menu de texto atual com operações básicas de Filial
 ├── LocadoraDbContext.cs # Contexto do banco com os DbSets principais
 ├── CRA.csproj # Arquivo de projeto (renomeado)
-=======
-├── Program.cs            # Menu de texto atual com operações básicas de Filial
-├── CRA.csproj            # Arquivo de projeto (renomeado)
->>>>>>> 770cf906fc436e1f352f16ffdc3a769e44ebbc5e
 ├── .gitignore
 ├── .gitattributes
 └── README.md # Este arquivo
@@ -93,15 +88,4 @@ Caso esteja participando do projeto:
 Este projeto foi estruturado por Fellipe dos Santos Godinho, estudante de Sistemas de Informação na Urcamp de Bagé, com foco na organização de código, alimentação do banco de dados e suporte à equipe de frontend. As pastas gráficas foram adicionadas para facilitar a visualização da arquitetura completa.
 📄 Licença
 
-<<<<<<< HEAD
 Este projeto é apenas para fins didáticos e não possui licença comercial.
-"""
-=======
-Este projeto foi estruturado por **Fellipe**, com foco na organização de código, alimentação do banco de dados e suporte à equipe de frontend. As pastas gráficas foram adicionadas para facilitar a visualização da arquitetura completa.
-
----
-
-## 📄 Licença
-
-Este projeto é apenas para fins didáticos e não possui licença comercial.
->>>>>>> 770cf906fc436e1f352f16ffdc3a769e44ebbc5e
