@@ -12,6 +12,8 @@ public static class MenuPrincipal
         var funcionarioService = new FuncionarioService(db);
         var setorService = new SetorService(db);
         var filmeService = new FilmeService(db); // Adicionei o FilmeService aqui
+        var estoqueService = new EstoqueService(db);
+
 
         int opcao;
         do
@@ -23,6 +25,8 @@ public static class MenuPrincipal
             Console.WriteLine("3. Gerenciar Funcionários");
             Console.WriteLine("4. Gerenciar Setores");
             Console.WriteLine("5. Logout");
+            Console.WriteLine("6. Gerenciar Estoque");
+
             Console.Write("Opção: ");
 
             if (!int.TryParse(Console.ReadLine(), out opcao))
@@ -49,6 +53,10 @@ public static class MenuPrincipal
                     Console.WriteLine("Logout efetuado.");
                     opcao = 0; // Sai do menu principal e volta ao programa principal
                     break;
+                case 6:
+                    EstoqueMenu.Exibir(estoqueService);
+                    break;
+
                 default:
                     Console.WriteLine("Opção inválida, tente novamente.");
                     break;

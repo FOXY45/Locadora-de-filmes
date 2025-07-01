@@ -7,7 +7,10 @@ public class LocadoraDbContext : DbContext
     public DbSet<Funcionario> Funcionarios { get; set; }
     public DbSet<Setor> Setores { get; set; }
 
-    public DbSet<Filme> Filmes { get; set; } // ✅ Adicionado
+    public DbSet<Filme> Filmes { get; set; } 
+    
+    public DbSet<Estoque> Estoques { get; set; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlite("Data Source=locadora.db");
