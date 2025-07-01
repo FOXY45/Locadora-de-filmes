@@ -1,4 +1,4 @@
-# 🎬 Locadora de Filmes
+conteudo_readme = """# 🎬 Locadora de Filmes
 
 Projeto desenvolvido com o objetivo de simular o funcionamento de uma locadora de filmes com controle de filiais, funcionários, estoque e cadastro de títulos.
 
@@ -20,24 +20,23 @@ Este projeto serve como protótipo funcional, com backend completo em C# e estru
 
 ## 📁 Estrutura do Projeto
 
-```
 LocadoraDeFilmes/
 │
-├── Models/               # Entidades do banco de dados (Filial, Funcionario, Setor)
-├── Services/             # Serviços de CRUD (FilialService, FuncionarioService, SetorService)
-├── SQL/                  # Scripts SQL (tabelas, procedures, triggers)
+├── Models/ # Entidades do banco de dados (Filial, Funcionario, Setor)
+├── Services/ # Serviços de CRUD (FilialService, FuncionarioService, SetorService)
+├── SQL/ # Scripts SQL (tabelas, procedures, triggers)
 │
-├── Views/                # [interface Avalonia] Telas em XAML (em branco, para expansão futura)
-├── ViewModels/           # [interface Avalonia] Lógica das Views (em branco, para expansão futura)
-├── Resources/            # Estilos, imagens e arquivos estáticos (em branco)
+├── Views/ # [interface Avalonia] Telas em XAML (em branco, para expansão futura)
+├── ViewModels/ # [interface Avalonia] Lógica das Views (em branco, para expansão futura)
+├── Resources/ # Estilos, imagens e arquivos estáticos (em branco)
 │
-├── Program.cs            # Menu de texto atual com operações básicas de Filial
-├── LocadoraDbContext.cs  # Contexto do banco com os DbSets principais
-├── CRA.csproj            # Arquivo de projeto (renomeado)
+├── Program.cs # Menu de texto atual com operações básicas de Filial
+├── LocadoraDbContext.cs # Contexto do banco com os DbSets principais
+├── CRA.csproj # Arquivo de projeto (renomeado)
 ├── .gitignore
 ├── .gitattributes
-└── README.md             # Este arquivo
-```
+└── README.md # Este arquivo
+
 
 ---
 
@@ -72,26 +71,22 @@ Caso esteja participando do projeto:
 1. Faça um fork ou clone do repositório:
    ```bash
    git clone https://github.com/FOXY45/Locadora-de-filmes
-   ```
 2. Crie uma nova branch ou atualize sua local
+
 3. Faça suas alterações com commits claros
+
 4. Envie um pull request, ou envie diretamente se for colaborador
 
----
+💡 Observações
 
-## 💡 Observações
+    Se você é da equipe responsável pela interface gráfica, os arquivos já estão organizados nas pastas Views/, ViewModels/ e Resources/.
 
-- Se você é da equipe responsável pela **interface gráfica**, os arquivos já estão organizados nas pastas `Views/`, `ViewModels/` e `Resources/`.
-- Caso encontre qualquer problema com namespaces, importações ou contextos, verifique os `using`, a pasta correta, e se o arquivo está referenciado no `.csproj`.
+    Caso encontre qualquer problema com namespaces, importações ou contextos, verifique os using, a pasta correta, e se o arquivo está referenciado no .csproj.
 
----
+📌 Autor da Estrutura
 
-## 📌 Autor da Estrutura
-
-Este projeto foi estruturado por **Fellipe**, com foco na organização de código, alimentação do banco de dados e suporte à equipe de frontend. As pastas gráficas foram adicionadas para facilitar a visualização da arquitetura completa.
-
----
-
-## 📄 Licença
+Este projeto foi estruturado por Fellipe dos Santos Godinho, estudante de Sistemas de Informação na Urcamp de Bagé, com foco na organização de código, alimentação do banco de dados e suporte à equipe de frontend. As pastas gráficas foram adicionadas para facilitar a visualização da arquitetura completa.
+📄 Licença
 
 Este projeto é apenas para fins didáticos e não possui licença comercial.
+"""
