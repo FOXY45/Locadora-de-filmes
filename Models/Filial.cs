@@ -10,9 +10,10 @@ namespace Models
         public string Endereco { get; set; } = string.Empty;       // Localização física
 
         public decimal CustoOperacional { get; set; }              // Custos mensais ou acumulados
-        public decimal Faturamento { get; set; }                    // Total em vendas/aluguéis
+        public decimal Faturamento { get; set; }                   // Total em vendas/aluguéis
 
         // Relação com funcionários vinculados a essa filial
         public List<Funcionario> Funcionarios { get; set; } = new List<Funcionario>();
     }
 }
+

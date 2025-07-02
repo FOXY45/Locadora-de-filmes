@@ -1,4 +1,3 @@
-using System;
 using Models;
 using Services;
 
@@ -8,57 +7,26 @@ public static class LoginMenu
 {
     public static Funcionario? Executar(LoginService loginService)
     {
-        Console.WriteLine("==== LOGIN ====");
+        Funcionario? usuarioLogado = null;
 
-        while (true)
+        do
         {
+            Console.WriteLine("\n==== LOGIN ====");
             Console.Write("Usuário: ");
             string usuario = Console.ReadLine() ?? "";
 
             Console.Write("Senha: ");
-            string senha = LerSenha();
+            string senha = Console.ReadLine() ?? "";
 
-            var funcionario = loginService.Autenticar(usuario, senha);
+            usuarioLogado = loginService.Autenticar(usuario, senha);
 
-            if (funcionario == null)
+            if (usuarioLogado == null)
             {
-                Console.WriteLine("❌ Login inválido. Tente novamente.");
-                continue;
+                Console.WriteLine("Usuário ou senha inválidos. Tente novamente.\n");
             }
 
-            Console.WriteLine($"\n✅ Bem-vindo, {funcionario.Nome}!");
+        } while (usuarioLogado == null);
 
-            Console.Write("Manter conectado nesta sessão? (s/n): ");
-            var manter = Console.ReadLine()?.ToLower();
-
-            return funcionario;
-        }
-    }
-
-    // Oculta senha digitada (para deixar mais profissional)
-    private static string LerSenha()
-    {
-        string senha = "";
-        ConsoleKeyInfo key;
-
-        do
-        {
-            key = Console.ReadKey(intercept: true);
-
-            if (key.Key == ConsoleKey.Backspace && senha.Length > 0)
-            {
-                senha = senha[..^1];
-                Console.Write("\b \b");
-            }
-            else if (!char.IsControl(key.KeyChar))
-            {
-                senha += key.KeyChar;
-                Console.Write("*");
-            }
-
-        } while (key.Key != ConsoleKey.Enter);
-
-        Console.WriteLine();
-        return senha;
+        return usuarioLogado;
     }
 }

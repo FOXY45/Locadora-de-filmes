@@ -2,79 +2,83 @@ using System;
 using System.Linq;
 using Models;
 
-namespace Services;
-
-public class LoginService
+namespace Services
 {
-    private readonly LocadoraDbContext _context;
-    private const string AdminUser = "admin";
-    private const string AdminSenha = "adm123";
-
-    public LoginService(LocadoraDbContext context)
+    public class LoginService
     {
-        _context = context;
-        CriarAdminSeNaoExistir();
-    }
+        private readonly LocadoraDbContext _context;
 
-    private void CriarAdminSeNaoExistir()
-    {
-        if (!_context.Funcionarios.Any(f => f.UsuarioId == AdminUser))
+        public LoginService(LocadoraDbContext context)
         {
+            _context = context;
+            CriarAdminSeNaoExistir();
+        }
+
+        public void CriarAdminSeNaoExistir()
+        {
+            var adminExistente = _context.Funcionarios
+                .Any(f => f.NivelAcesso == "Administrador");
+
+            if (adminExistente)
+                return;
+
+            var filial = _context.Filiais.FirstOrDefault(f => f.Id == 1);
+            if (filial == null)
+            {
+                filial = new Filial
+                {
+                    Nome = "Filial Padrão",
+                    Endereco = "Endereço Padrão",
+                    Faturamento = 0,
+                    CustoOperacional = 0
+                };
+                _context.Filiais.Add(filial);
+                _context.SaveChanges();
+            }
+
+            var setor = _context.Setores.FirstOrDefault(s => s.Id == 1);
+            if (setor == null)
+            {
+                setor = new Setor
+                {
+                    Nome = "Setor Padrão"
+                };
+                _context.Setores.Add(setor);
+                _context.SaveChanges();
+            }
+
             var admin = new Funcionario
             {
-                Nome = "Administrador Principal",
+                Nome = "Administrador",
+                UsuarioId = "admin",
+                NivelAcesso = "Administrador",
+                FilialId = filial.Id,
+                SetorId = setor.Id,
                 Sexo = "Outro",
-                UsuarioId = AdminUser,
-                DataAniversario = new DateTime(1990, 1, 1),
+                DataAniversario = DateTime.Now.AddYears(-30),
                 Salario = 0,
                 DiasTrabalhados = 0,
-                FaltasNaoJustificadas = 0,
-                NivelAcesso = "Administrador",
-                FilialId = _context.Filiais.FirstOrDefault()?.Id ?? 1,
-                SetorId = _context.Setores.FirstOrDefault()?.Id ?? 1
+                FaltasNaoJustificadas = 0
             };
 
             _context.Funcionarios.Add(admin);
             _context.SaveChanges();
-            Console.WriteLine("⚠️  Administrador padrão criado: login = admin, senha = adm123");
         }
-    }
 
-    public Funcionario? Autenticar(string usuarioId, string senha)
-    {
-        // Apenas o admin tem verificação de senha por enquanto
-        var funcionario = _context.Funcionarios.FirstOrDefault(f => f.UsuarioId == usuarioId);
-
-        if (funcionario == null) return null;
-
-        if (usuarioId == AdminUser)
+        // Método para autenticar um usuário
+        public Funcionario? Autenticar(string usuarioId, string senha)
         {
-            if (senha == AdminSenha) return funcionario;
+            // Por enquanto, todos usam a senha padrão "adm123"
+            var funcionario = _context.Funcionarios
+                .FirstOrDefault(f => f.UsuarioId == usuarioId);
+
+            if (funcionario == null)
+                return null;
+
+            if (senha == "adm123")
+                return funcionario;
+
             return null;
         }
-
-        // Para outros usuários, a senha pode ser ignorada ou tratada depois
-        return funcionario;
     }
-
-    public bool PodePromover(Funcionario solicitante, Funcionario alvo)
-    {
-        // Só o admin original pode promover
-        return solicitante.UsuarioId == AdminUser && alvo.NivelAcesso != "Administrador";
-    }
-
-    public bool PromoverParaAdmin(Funcionario solicitante, string usuarioId)
-    {
-        var funcionario = _context.Funcionarios.FirstOrDefault(f => f.UsuarioId == usuarioId);
-        if (funcionario == null)
-            return false;
-
-        if (!PodePromover(solicitante, funcionario))
-            return false;
-
-        funcionario.NivelAcesso = "Administrador";
-        _context.SaveChanges();
-        return true;
-    }
-
 }
